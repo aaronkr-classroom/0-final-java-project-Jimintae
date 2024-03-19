@@ -61,7 +61,7 @@ public class Welcome {
 					System.out.println("7. 장바구니의 항목 삭제하기: ");
 					break;
 				case 8:
-					System.out.println("8. 종료");
+					System.out.println("8. 종료"); 
 					quit = true;
 					break;
 				} // switch 끝
