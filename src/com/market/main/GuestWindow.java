@@ -2,6 +2,9 @@ package com.market.main;
 
 import javax.swing.*;
 import java.awt.*;
+import com.market.member.UserInIt;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GuestWindow extends JFrame{
 	
@@ -75,9 +78,20 @@ public class GuestWindow extends JFrame{
 		JButton enterButton = new JButton();
 		enterButton.add(buttonLabel);
 		buttonPanel.add(enterButton);
-	}
-
-	public static void main(String[] args) {
-		new GuestWindow("고객 정보 입력", 0, 0, 1000, 750);
+		enterButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JLabel message = new JLabel("고객 정보를 입력하세요");
+				message.setFont(ft);	// 대화상자의 메시지 글꼴 설정
+				
+				if (nameField.getText().isEmpty() || phoneField.getText().isEmpty())
+					JOptionPane.showMessageDialog(enterButton,  message, "고객정보", JOptionPane.ERROR_MESSAGE);
+				else {
+					UserInIt.init(nameField.getText(), Integer.parseInt(phoneField.getText()));
+					dispose();
+					new MainWindow("온라인 서점", 0, 0, 1000, 750);
+					// MainWindow 프레임 호출
+				}
+			}
+		});
 	}
 }

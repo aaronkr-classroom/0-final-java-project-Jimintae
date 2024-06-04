@@ -20,7 +20,7 @@ public class Person {
 	// Getter 메서드들
 	public String getName() { return this.name; }
 	public int getPhone() { return this.phone; }
-	public String getAddr() { return this.address; }
+	public String getAddress() { return this.address; }
 	// Setter 메서드들
 	public void setName(String name) { this.name = name; }
 	public void setPhone(int phone) {this.phone = phone; }
